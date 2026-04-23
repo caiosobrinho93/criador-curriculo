@@ -2,9 +2,13 @@ import { useState, useRef } from 'react';
 import type { ResumeData } from './types/resume';
 import { defaultResumeData } from './types/resume';
 import { ResumeForm } from './components/ResumeForm';
-import { ResumePreview, type DesignId } from './components/DesignTemplates';
+import { ResumePreview, type DesignId, designInfo } from './components/DesignTemplates';
 import { useReactToPrint } from 'react-to-print';
-import { Download, Eye, Edit3, Sparkles, ChevronLeft, ChevronRight, Check, User, Briefcase, GraduationCap, Languages, Star } from 'lucide-react';
+import { 
+  Download, Eye, Edit3, Sparkles, Menu, X, 
+  User, Briefcase, GraduationCap, Languages, 
+  Palette, CheckCircle, Share2, RefreshCw
+} from 'lucide-react';
 import './App.css';
 
 const sampleData: ResumeData = {
@@ -48,9 +52,9 @@ const steps = [
   { id: 'personal', title: 'Pessoal', icon: User },
   { id: 'experience', title: 'Experiência', icon: Briefcase },
   { id: 'education', title: 'Formação', icon: GraduationCap },
-  { id: 'skills', title: 'Habilidades', icon: Star },
+  { id: 'skills', title: 'Habilidades', icon: CheckCircle },
   { id: 'languages', title: 'Idiomas', icon: Languages },
-  { id: 'design', title: 'Design', icon: Check },
+  { id: 'design', title: 'Design', icon: Palette },
 ];
 
 function App() {
@@ -58,6 +62,8 @@ function App() {
   const [design, setDesign] = useState<DesignId>('modern');
   const [currentStep, setCurrentStep] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [previewMode, setPreviewMode] = useState<'preview' | 'fullscreen'>('fullscreen');
   const resumeRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
@@ -67,119 +73,172 @@ function App() {
 
   const fillSampleData = () => {
     setData(sampleData);
+    setMenuOpen(false);
   };
 
-  const nextStep = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      setShowPreview(true);
-    }
+  const resetData = () => {
+    setData(defaultResumeData);
+    setDesign('modern');
+    setCurrentStep(0);
+    setShowPreview(false);
+    setMenuOpen(false);
   };
 
-  const prevStep = () => {
-    if (showPreview) {
-      setShowPreview(false);
-    } else if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+  const handleShare = async () => {
+    const text = `Veja meu currículo: ${data.personalInfo.name} - ${data.personalInfo.title}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Meu Currículo', text });
+      } catch (e) {
+        console.log('Share cancelled');
+      }
     }
-  };
-
-  const renderStepContent = () => {
-    if (showPreview) {
-      return (
-        <div className="preview-step">
-          <div className="preview-wrapper" ref={resumeRef}>
-            <ResumePreview data={data} design={design} />
-          </div>
-          <div className="preview-actions">
-            <button className="btn-primary" onClick={() => handlePrint()}>
-              <Download size={20} />
-              Baixar PDF
-            </button>
-            <button className="btn-secondary" onClick={() => setShowPreview(false)}>
-              <Edit3 size={20} />
-              Editar
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <ResumeForm 
-        data={data} 
-        onChange={setData} 
-        currentStep={currentStep}
-      />
-    );
   };
 
   return (
     <div className="app">
+      {/* Header */}
       <header className="app-header">
+        <button className="menu-btn" onClick={() => setMenuOpen(true)}>
+          <Menu size={24} />
+        </button>
         <div className="logo">
           <span className="logo-icon">◆</span>
           <span className="logo-text">Currículo</span>
         </div>
-        <button className="sample-btn" onClick={fillSampleData}>
-          <Sparkles size={16} />
-          <span className="btn-text">Demo</span>
-        </button>
+        <div className="header-actions">
+          <button className="icon-btn" onClick={() => setShowPreview(!showPreview)}>
+            <Eye size={20} />
+          </button>
+        </div>
       </header>
 
-      {!showPreview && (
-        <div className="steps-container">
-          <div className="steps">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isActive = index === currentStep;
-              const isCompleted = index < currentStep;
-              
-              return (
-                <div 
-                  key={step.id}
-                  className={`step ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}
-                  onClick={() => setCurrentStep(index)}
-                >
-                  <div className="step-icon">
-                    {isCompleted ? <Check size={16} /> : <Icon size={16} />}
-                  </div>
-                  <span className="step-title">{step.title}</span>
-                </div>
-              );
-            })}
-          </div>
+      {/* Sidebar Menu */}
+      <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <span className="logo-text">Menu</span>
+          <button className="close-btn" onClick={() => setMenuOpen(false)}>
+            <X size={24} />
+          </button>
         </div>
-      )}
-
-      <main className={`app-main ${showPreview ? 'preview-mode' : ''}`}>
-        {renderStepContent()}
-      </main>
-
-      {!showPreview && (
-        <footer className="app-footer">
-          <button 
-            className="btn-nav prev" 
-            onClick={prevStep}
-            disabled={currentStep === 0}
-          >
-            <ChevronLeft size={20} />
+        
+        <div className="sidebar-content">
+          <button className="menu-item" onClick={fillSampleData}>
+            <Sparkles size={20} />
+            <span>Preencher Exemplo</span>
           </button>
           
-          <div className="step-indicator">
-            {currentStep + 1} / {steps.length}
+          <button className="menu-item" onClick={() => { setShowPreview(true); setMenuOpen(false); }}>
+            <Eye size={20} />
+            <span>Visualizar</span>
+          </button>
+          
+          <button className="menu-item" onClick={() => { handlePrint(); setMenuOpen(false); }}>
+            <Download size={20} />
+            <span>Baixar PDF</span>
+          </button>
+          
+          <button className="menu-item" onClick={handleShare}>
+            <Share2 size={20} />
+            <span>Compartilhar</span>
+          </button>
+          
+          <div className="menu-divider"></div>
+          
+          <button className="menu-item danger" onClick={resetData}>
+            <RefreshCw size={20} />
+            <span>Novo Currículo</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)}></div>}
+
+      {/* Main Content */}
+      <main className={`app-main ${showPreview ? 'preview-active' : ''}`}>
+        {!showPreview ? (
+          <div className="form-container">
+            {/* Progress Steps */}
+            <div className="progress-steps">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                const isActive = index === currentStep;
+                const isCompleted = index < currentStep;
+                
+                return (
+                  <button
+                    key={step.id}
+                    className={`step-btn ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}
+                    onClick={() => setCurrentStep(index)}
+                  >
+                    <div className="step-icon">
+                      {isCompleted ? <CheckCircle size={16} /> : <Icon size={16} />}
+                    </div>
+                    <span>{step.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Form */}
+            <div className="form-content">
+              <ResumeForm 
+                data={data} 
+                onChange={setData} 
+                currentStep={currentStep}
+                design={design}
+                onDesignChange={setDesign}
+              />
+            </div>
+
+            {/* Navigation */}
+            <div className="nav-buttons">
+              <button 
+                className="nav-btn prev" 
+                onClick={() => currentStep > 0 && setCurrentStep(currentStep - 1)}
+                disabled={currentStep === 0}
+              >
+                Anterior
+              </button>
+              
+              {currentStep === steps.length - 1 ? (
+                <button className="nav-btn next primary" onClick={() => setShowPreview(true)}>
+                  Ver Resultado
+                </button>
+              ) : (
+                <button className="nav-btn next" onClick={() => setCurrentStep(currentStep + 1)}>
+                  Próximo
+                </button>
+              )}
+            </div>
           </div>
-          
-          <button className="btn-nav next" onClick={nextStep}>
-            {currentStep === steps.length - 1 ? (
-              <Eye size={20} />
-            ) : (
-              <ChevronRight size={20} />
-            )}
-          </button>
-        </footer>
-      )}
+        ) : (
+          /* Preview Mode */
+          <div className="preview-container">
+            <div className="preview-toolbar">
+              <button className="toolbar-btn" onClick={() => setShowPreview(false)}>
+                <Edit3 size={18} />
+                Editar
+              </button>
+              <button className="toolbar-btn" onClick={() => setPreviewMode(previewMode === 'preview' ? 'fullscreen' : 'preview')}>
+                <Eye size={18} />
+                {previewMode === 'preview' ? 'Tela Cheia' : 'Mini'}
+              </button>
+              <button className="toolbar-btn primary" onClick={handlePrint}>
+                <Download size={18} />
+                PDF
+              </button>
+            </div>
+            
+            <div className={`preview-scroll ${previewMode}`}>
+              <div className="preview-wrapper" ref={resumeRef}>
+                <ResumePreview data={data} design={design} />
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
     </div>
   );
 }

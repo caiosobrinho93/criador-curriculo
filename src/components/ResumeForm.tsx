@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import type { ResumeData } from '../types/resume';
-import { Plus, Trash2 } from 'lucide-react';
+import { designInfo, type DesignId } from './DesignTemplates';
+import { Check } from 'lucide-react';
 
 interface Props {
   data: ResumeData;
   onChange: (data: ResumeData) => void;
   currentStep: number;
+  design: DesignId;
+  onDesignChange: (design: DesignId) => void;
 }
 
-export function ResumeForm({ data, onChange, currentStep }: Props) {
+export function ResumeForm({ data, onChange, currentStep, design, onDesignChange }: Props) {
   const updatePersonalInfo = (field: string, value: string) => {
     onChange({
       ...data,
@@ -122,7 +125,7 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
         <h2>Experiência Profissional</h2>
         {data.experience.map((exp, i) => (
           <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeExperience(i)}><Trash2 size={16} /></button>
+            <button className="remove-btn" onClick={() => removeExperience(i)}>×</button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Empresa</label>
@@ -151,7 +154,7 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
             </div>
           </div>
         ))}
-        <button className="add-btn" onClick={addExperience}><Plus size={18} />Adicionar Experiência</button>
+        <button className="add-btn" onClick={addExperience}>+ Adicionar Experiência</button>
       </div>
     );
   }
@@ -162,7 +165,7 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
         <h2>Formação Acadêmica</h2>
         {data.education.map((edu, i) => (
           <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeEducation(i)}><Trash2 size={16} /></button>
+            <button className="remove-btn" onClick={() => removeEducation(i)}>×</button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Instituição</label>
@@ -183,7 +186,7 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
             </div>
           </div>
         ))}
-        <button className="add-btn" onClick={addEducation}><Plus size={18} />Adicionar Formação</button>
+        <button className="add-btn" onClick={addEducation}>+ Adicionar Formação</button>
       </div>
     );
   }
@@ -206,7 +209,7 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
         <h2>Idiomas</h2>
         {data.languages.map((lang, i) => (
           <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeLanguage(i)}><Trash2 size={16} /></button>
+            <button className="remove-btn" onClick={() => removeLanguage(i)}>×</button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Idioma</label>
@@ -219,47 +222,47 @@ export function ResumeForm({ data, onChange, currentStep }: Props) {
             </div>
           </div>
         ))}
-        <button className="add-btn" onClick={addLanguage}><Plus size={18} />Adicionar Idioma</button>
+        <button className="add-btn" onClick={addLanguage}>+ Adicionar Idioma</button>
       </div>
     );
   }
 
   if (currentStep === 5) {
     return (
-      <div className="form-step design-step">
+      <div className="form-step">
         <h2>Escolha o Design</h2>
-        <DesignSelectorMini />
+        <p className="step-description">Selecione um modelo para seu currículo</p>
+        <div className="design-grid">
+          {designInfo.map((d) => (
+            <div
+              key={d.id}
+              className={`design-card ${design === d.id ? 'selected' : ''}`}
+              onClick={() => onDesignChange(d.id)}
+            >
+              <div 
+                className="design-preview"
+                style={{ 
+                  background: d.colors.length === 2 
+                    ? `linear-gradient(135deg, ${d.colors[0]} 0%, ${d.colors[1]} 100%)`
+                    : d.colors[0]
+                }}
+              >
+                <div className="design-lines">
+                  <div className="line"></div>
+                  <div className="line short"></div>
+                  <div className="line"></div>
+                </div>
+              </div>
+              <div className="design-info">
+                <span>{d.name}</span>
+                {design === d.id && <Check size={16} className="check-icon" />}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 
   return null;
-}
-
-import { designInfo, type DesignId } from './DesignTemplates';
-
-function DesignSelectorMini() {
-  const [selected, setSelected] = useState<DesignId>('modern');
-  
-  return (
-    <div className="design-selector-mini">
-      {designInfo.map((d) => (
-        <div
-          key={d.id}
-          className={`design-option ${selected === d.id ? 'selected' : ''}`}
-          onClick={() => setSelected(d.id)}
-        >
-          <div 
-            className="design-color"
-            style={{ 
-              background: d.colors.length === 2 
-                ? `linear-gradient(135deg, ${d.colors[0]} 0%, ${d.colors[1]} 100%)`
-                : d.colors[0]
-            }}
-          />
-          <span>{d.name}</span>
-        </div>
-      ))}
-    </div>
-  );
 }
