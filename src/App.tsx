@@ -63,7 +63,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [previewMode, setPreviewMode] = useState<'preview' | 'fullscreen'>('fullscreen');
+  const [previewMode, setPreviewMode] = useState<'mini' | 'fullscreen'>('fullscreen');
   const resumeRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
@@ -221,9 +221,9 @@ function App() {
                 <Edit3 size={18} />
                 Editar
               </button>
-              <button className="toolbar-btn" onClick={() => setPreviewMode(previewMode === 'preview' ? 'fullscreen' : 'preview')}>
+              <button className="toolbar-btn" onClick={() => setPreviewMode(previewMode === 'fullscreen' ? 'mini' : 'fullscreen')}>
                 <Eye size={18} />
-                {previewMode === 'preview' ? 'Tela Cheia' : 'Mini'}
+                {previewMode === 'fullscreen' ? 'Mini' : 'Tela Cheia'}
               </button>
               <button className="toolbar-btn primary" onClick={handlePrint}>
                 <Download size={18} />
