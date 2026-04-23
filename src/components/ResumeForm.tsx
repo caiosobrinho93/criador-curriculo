@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ResumeData } from '../types/resume';
 import { designInfo, type DesignId } from './DesignTemplates';
-import { Check } from 'lucide-react';
+import { Check, Save, Trash2, Plus } from 'lucide-react';
 
 interface Props {
   data: ResumeData;
@@ -12,6 +12,10 @@ interface Props {
 }
 
 export function ResumeForm({ data, onChange, currentStep, design, onDesignChange }: Props) {
+  const [savedExperience, setSavedExperience] = useState<number[]>([]);
+  const [savedEducation, setSavedEducation] = useState<number[]>([]);
+  const [savedLanguages, setSavedLanguages] = useState<number[]>([]);
+
   const updatePersonalInfo = (field: string, value: string) => {
     onChange({
       ...data,
@@ -36,7 +40,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
   };
 
   const removeExperience = (index: number) => {
+    setSavedExperience(prev => prev.filter(i => i !== index));
     onChange({ ...data, experience: data.experience.filter((_, i) => i !== index) });
+  };
+
+  const saveExperience = (index: number) => {
+    if (!savedExperience.includes(index)) {
+      setSavedExperience([...savedExperience, index]);
+    }
   };
 
   const addEducation = () => {
@@ -56,7 +67,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
   };
 
   const removeEducation = (index: number) => {
+    setSavedEducation(prev => prev.filter(i => i !== index));
     onChange({ ...data, education: data.education.filter((_, i) => i !== index) });
+  };
+
+  const saveEducation = (index: number) => {
+    if (!savedEducation.includes(index)) {
+      setSavedEducation([...savedEducation, index]);
+    }
   };
 
   const updateSkills = (value: string) => {
@@ -78,7 +96,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
   };
 
   const removeLanguage = (index: number) => {
+    setSavedLanguages(prev => prev.filter(i => i !== index));
     onChange({ ...data, languages: data.languages.filter((_, i) => i !== index) });
+  };
+
+  const saveLanguage = (index: number) => {
+    if (!savedLanguages.includes(index)) {
+      setSavedLanguages([...savedLanguages, index]);
+    }
   };
 
   if (currentStep === 0) {
@@ -124,8 +149,12 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
       <div className="form-step">
         <h2>Experiência Profissional</h2>
         {data.experience.map((exp, i) => (
-          <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeExperience(i)}>×</button>
+          <div key={i} className={`item-card ${savedExperience.includes(i) ? 'saved' : ''}`}>
+            <div className="item-card-header">
+              <span className="item-number">#{i + 1}</span>
+              {savedExperience.includes(i) && <span className="saved-badge"><Check size={14}/> Salvo</span>}
+            </div>
+            <button className="remove-btn" onClick={() => removeExperience(i)}><Trash2 size={16}/></button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Empresa</label>
@@ -152,9 +181,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
               <label>Descrição</label>
               <textarea value={exp.description} onChange={(e) => updateExperience(i, 'description', e.target.value)} placeholder="Suas atividades..." rows={3} />
             </div>
+            {!savedExperience.includes(i) && (
+              <button className="save-btn" onClick={() => saveExperience(i)}>
+                <Save size={16}/> Salvar
+              </button>
+            )}
           </div>
         ))}
-        <button className="add-btn" onClick={addExperience}>+ Adicionar Experiência</button>
+        <button className="add-btn" onClick={addExperience}><Plus size={18}/>Adicionar Experiência</button>
       </div>
     );
   }
@@ -164,8 +198,12 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
       <div className="form-step">
         <h2>Formação Acadêmica</h2>
         {data.education.map((edu, i) => (
-          <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeEducation(i)}>×</button>
+          <div key={i} className={`item-card ${savedEducation.includes(i) ? 'saved' : ''}`}>
+            <div className="item-card-header">
+              <span className="item-number">#{i + 1}</span>
+              {savedEducation.includes(i) && <span className="saved-badge"><Check size={14}/> Salvo</span>}
+            </div>
+            <button className="remove-btn" onClick={() => removeEducation(i)}><Trash2 size={16}/></button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Instituição</label>
@@ -184,9 +222,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
                 <input type="text" value={edu.endDate} onChange={(e) => updateEducation(i, 'endDate', e.target.value)} placeholder="2020 - 2024" />
               </div>
             </div>
+            {!savedEducation.includes(i) && (
+              <button className="save-btn" onClick={() => saveEducation(i)}>
+                <Save size={16}/> Salvar
+              </button>
+            )}
           </div>
         ))}
-        <button className="add-btn" onClick={addEducation}>+ Adicionar Formação</button>
+        <button className="add-btn" onClick={addEducation}><Plus size={18}/>Adicionar Formação</button>
       </div>
     );
   }
@@ -208,8 +251,12 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
       <div className="form-step">
         <h2>Idiomas</h2>
         {data.languages.map((lang, i) => (
-          <div key={i} className="item-card">
-            <button className="remove-btn" onClick={() => removeLanguage(i)}>×</button>
+          <div key={i} className={`item-card ${savedLanguages.includes(i) ? 'saved' : ''}`}>
+            <div className="item-card-header">
+              <span className="item-number">#{i + 1}</span>
+              {savedLanguages.includes(i) && <span className="saved-badge"><Check size={14}/> Salvo</span>}
+            </div>
+            <button className="remove-btn" onClick={() => removeLanguage(i)}><Trash2 size={16}/></button>
             <div className="form-grid">
               <div className="input-group">
                 <label>Idioma</label>
@@ -220,9 +267,14 @@ export function ResumeForm({ data, onChange, currentStep, design, onDesignChange
                 <input type="text" value={lang.level} onChange={(e) => updateLanguage(i, 'level', e.target.value)} placeholder="Avançado, Fluente..." />
               </div>
             </div>
+            {!savedLanguages.includes(i) && (
+              <button className="save-btn" onClick={() => saveLanguage(i)}>
+                <Save size={16}/> Salvar
+              </button>
+            )}
           </div>
         ))}
-        <button className="add-btn" onClick={addLanguage}>+ Adicionar Idioma</button>
+        <button className="add-btn" onClick={addLanguage}><Plus size={18}/>Adicionar Idioma</button>
       </div>
     );
   }

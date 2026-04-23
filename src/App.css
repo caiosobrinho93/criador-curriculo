@@ -5,15 +5,18 @@
 }
 
 :root {
-  --bg: #f8f9fa;
+  --bg: #f0f2f5;
   --surface: #ffffff;
-  --border: #e9ecef;
-  --text: #212529;
-  --text-secondary: #6c757d;
+  --border: #d1d5db;
+  --text: #1f2937;
+  --text-secondary: #6b7280;
   --primary: #4f46e5;
   --primary-hover: #4338ca;
   --success: #10b981;
   --danger: #ef4444;
+  --input-bg: #f9fafb;
+  --input-border: #e5e7eb;
+  --input-focus: #4f46e5;
 }
 
 body {
@@ -264,36 +267,38 @@ body {
 
 .input-group label {
   font-size: 13px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-weight: 600;
+  color: var(--text);
 }
 
 .input-group input,
 .input-group textarea {
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  padding: 14px 16px;
+  border: 2px solid var(--input-border);
+  border-radius: 12px;
   font-size: 15px;
-  background: var(--bg);
+  background: var(--input-bg);
   color: var(--text);
   width: 100%;
+  transition: all 0.2s;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #9ca3af;
 }
 
 .input-group input:focus,
 .input-group textarea:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: var(--input-focus);
   background: var(--surface);
-}
-
-.input-group input::placeholder,
-.input-group textarea::placeholder {
-  color: #adb5bd;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .input-group textarea {
   resize: none;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .checkbox-group {
@@ -304,8 +309,8 @@ body {
 }
 
 .checkbox-group input {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   accent-color: var(--primary);
 }
 
@@ -317,44 +322,102 @@ body {
 .item-card {
   position: relative;
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid var(--input-border);
+  border-radius: 16px;
   padding: 16px;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.item-card.saved {
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.item-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 12px;
+}
+
+.item-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--surface);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.saved-badge {
+  font-size: 12px;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
 }
 
 .remove-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #fee2e2;
   color: var(--danger);
-  font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
+}
+
+.save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.2s;
+}
+
+.save-btn:hover {
+  background: var(--primary-hover);
 }
 
 .add-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: 100%;
-  padding: 14px;
-  border: 2px dashed var(--border);
+  padding: 16px;
+  border: 2px dashed var(--input-border);
   border-radius: 12px;
   background: transparent;
   color: var(--primary);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 12px;
+  transition: all 0.2s;
+}
+
+.add-btn:hover {
+  border-color: var(--primary);
+  background: rgba(79, 70, 229, 0.05);
 }
 
 /* Design Grid */
@@ -368,7 +431,7 @@ body {
   cursor: pointer;
   border-radius: 12px;
   overflow: hidden;
-  border: 2px solid var(--border);
+  border: 2px solid var(--input-border);
   transition: all 0.2s;
 }
 
@@ -432,12 +495,12 @@ body {
 .nav-btn {
   flex: 1;
   padding: 14px;
-  border: 1px solid var(--border);
+  border: 2px solid var(--input-border);
   border-radius: 12px;
   background: var(--surface);
   color: var(--text);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -533,7 +596,7 @@ body {
   justify-content: center;
   gap: 6px;
   padding: 10px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   background: var(--surface);
   color: var(--text);
