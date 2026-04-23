@@ -1,0 +1,428 @@
+.resume {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: white;
+  box-sizing: border-box;
+}
+
+/* ============================================ */
+/* MODERN */
+/* ============================================ */
+.design-modern { display: flex; }
+.design-modern .resume-sidebar { width: 240px; background: #f8f9fa; border-right: 3px solid #2563eb; padding: 30px 20px; }
+.design-modern .sidebar-header h1 { font-size: 22px; margin: 0 0 4px; color: #1e293b; }
+.design-modern .sidebar-header .title { color: #2563eb; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
+.design-modern .sidebar-section h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #2563eb; margin: 20px 0 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+.design-modern .sidebar-section p { font-size: 12px; margin: 5px 0; color: #475569; }
+.design-modern .skills-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.design-modern .skill-tag { background: #eff6ff; color: #2563eb; padding: 3px 8px; border-radius: 3px; font-size: 10px; border: 1px solid #bfdbfe; }
+.design-modern .resume-main { flex: 1; padding: 30px; }
+.design-modern .resume-main section { margin-bottom: 24px; }
+.design-modern .resume-main h2 { font-size: 14px; color: #1e293b; border-left: 3px solid #2563eb; padding-left: 10px; margin-bottom: 12px; }
+.design-modern .item-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.design-modern .item-header h3 { font-size: 14px; color: #1e293b; margin: 0; }
+.design-modern .item-header span { font-size: 11px; color: #64748b; }
+.design-modern .company { font-weight: 500; color: #475569; margin: 0 0 4px; }
+.design-modern .description { font-size: 12px; color: #475569; line-height: 1.5; }
+.design-modern .education-item { margin-bottom: 16px; }
+
+/* ============================================ */
+/* CLASSIC */
+/* ============================================ */
+.design-classic { font-family: Georgia, serif; padding: 40px; }
+.design-classic header { text-align: center; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 2px solid #1e293b; }
+.design-classic h1 { font-size: 28px; margin: 0 0 4px; font-family: 'Times New Roman', serif; color: #1e293b; }
+.design-classic .title { font-size: 14px; font-style: italic; color: #475569; margin: 0 0 8px; }
+.design-classic .contact-line { font-size: 11px; color: #64748b; }
+.design-classic section { margin-bottom: 22px; }
+.design-classic h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 14px; }
+.design-classic .item-header { display: flex; justify-content: space-between; }
+.design-classic .item-header h3 { font-size: 14px; margin: 0; color: #1e293b; }
+.design-classic .item-header span { font-size: 11px; color: #64748b; font-style: italic; }
+
+/* ============================================ */
+/* CREATIVE */
+/* ============================================ */
+.design-creative .creative-header { background: #f8fafc; border-bottom: 4px solid #667eea; padding: 30px 40px; }
+.design-creative .creative-header h1 { font-size: 32px; margin: 0 0 4px; color: #1e293b; }
+.design-creative .creative-header .title { font-size: 14px; color: #667eea; margin: 0 0 12px; font-weight: 500; }
+.design-creative .contact-info { display: flex; gap: 16px; font-size: 11px; color: #64748b; }
+.design-creative section { padding: 24px 40px; }
+.design-creative h2 { font-size: 14px; color: #667eea; margin-bottom: 14px; font-weight: 600; }
+.design-creative .creative-columns { display: flex; gap: 32px; }
+.design-creative .col-main { flex: 2; }
+.design-creative .col-side { flex: 1; }
+.design-creative .experience-item { margin-bottom: 18px; padding-left: 12px; border-left: 2px solid #667eea; }
+.design-creative .experience-item h3 { font-size: 13px; margin: 0 0 4px; color: #1e293b; }
+.design-creative .company { font-weight: 500; color: #475569; margin: 0; font-size: 12px; }
+.design-creative .skills-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.design-creative .skills-tags span { background: #f0f4ff; color: #667eea; padding: 4px 10px; border-radius: 4px; font-size: 11px; }
+.design-creative .education-item { margin-bottom: 14px; }
+
+/* ============================================ */
+/* MINIMALIST */
+/* ============================================ */
+.design-minimalist { font-family: 'Helvetica Neue', Arial; padding: 44px 52px; }
+.design-minimalist h1 { font-size: 30px; font-weight: 300; margin: 0 0 4px; letter-spacing: -0.5px; color: #1e293b; }
+.design-minimalist .title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; margin-bottom: 16px; }
+.design-minimalist .contact-row { font-size: 11px; color: #64748b; }
+.design-minimalist .contact-row span + span::before { content: ' · '; }
+.design-minimalist section { margin-bottom: 28px; }
+.design-minimalist h2 { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #1e293b; font-weight: 600; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
+.design-minimalist .exp-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.design-minimalist .exp-row h3 { font-size: 13px; font-weight: 500; margin: 0; color: #1e293b; }
+.design-minimalist .exp-row span { font-size: 11px; color: #94a3b8; }
+.design-minimalist .company { font-size: 12px; color: #64748b; margin-bottom: 6px; }
+.design-minimalist .description { font-size: 12px; color: #475569; line-height: 1.5; }
+
+/* ============================================ */
+/* CYBER */
+/* ============================================ */
+.design-cyber { background: white; color: #1e293b; }
+.design-cyber .cyber-header { border-bottom: 3px solid #0891b2; padding: 28px 32px; margin-bottom: 24px; }
+.design-cyber .cyber-line { width: 40px; height: 3px; background: #0891b2; margin-bottom: 14px; }
+.design-cyber h1 { font-size: 26px; margin: 0 0 4px; color: #1e293b; }
+.design-cyber .title { color: #0891b2; font-size: 13px; font-weight: 500; margin-bottom: 12px; }
+.design-cyber .cyber-contact { font-size: 11px; color: #64748b; }
+.design-cyber .cyber-contact span + span::before { content: ' | '; }
+.design-cyber section { padding: 0 32px; margin-bottom: 22px; }
+.design-cyber h2 { font-size: 12px; color: #0891b2; margin-bottom: 12px; font-weight: 600; }
+.design-cyber .cyber-item { margin-bottom: 14px; }
+.design-cyber .cyber-item h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-cyber .cyber-item p { font-size: 11px; color: #64748b; }
+.design-cyber .cyber-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.design-cyber .cyber-skills span { border: 1px solid #0891b2; color: #0891b2; padding: 3px 8px; font-size: 10px; }
+
+/* ============================================ */
+/* GLASS */
+/* ============================================ */
+.design-glass { display: flex; background: white; }
+.design-glass .glass-sidebar { width: 220px; background: #f8fafc; border-right: 3px solid #7c3aed; padding: 28px 18px; }
+.design-glass h1 { font-size: 20px; color: #1e293b; margin: 0 0 4px; }
+.design-glass .title { color: #7c3aed; font-size: 12px; margin-bottom: 20px; font-weight: 500; }
+.design-glass .glass-contact { font-size: 11px; color: #64748b; margin-bottom: 24px; }
+.design-glass .glass-contact p { margin: 4px 0; }
+.design-glass .glass-skills h3 { color: #7c3aed; font-size: 10px; text-transform: uppercase; margin-bottom: 10px; }
+.design-glass .glass-skills span { display: inline-block; background: #f5f3ff; color: #7c3aed; padding: 3px 8px; border-radius: 3px; font-size: 10px; margin: 3px; border: 1px solid #ddd7fd; }
+.design-glass .glass-main { flex: 1; padding: 28px; }
+.design-glass .glass-main h2 { font-size: 13px; color: #7c3aed; margin-bottom: 14px; border-bottom: 2px solid #7c3aed; padding-bottom: 6px; }
+.design-glass .glass-main h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-glass .glass-main p { font-size: 12px; color: #475569; }
+.design-glass section { margin-bottom: 20px; }
+
+/* ============================================ */
+/* GRADIENT */
+/* ============================================ */
+.design-gradient { background: white; }
+.design-gradient .gradient-header { background: #fdf2f8; border-bottom: 3px solid #ec4899; padding: 28px 36px; }
+.design-gradient h1 { font-size: 28px; color: #1e293b; margin: 0 0 4px; }
+.design-gradient .gradient-header p { color: #ec4899; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+.design-gradient .gradient-contact { font-size: 11px; color: #64748b; }
+.design-gradient .gradient-contact span + span::before { content: ' | '; }
+.design-gradient .gradient-body { padding: 24px 36px; }
+.design-gradient section { margin-bottom: 20px; }
+.design-gradient h2 { font-size: 13px; color: #ec4899; margin-bottom: 12px; font-weight: 600; }
+.design-gradient h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-gradient p { font-size: 12px; color: #475569; }
+.design-gradient .gradient-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.design-gradient .gradient-skills span { background: #fdf2f8; color: #ec4899; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #fbcfe8; }
+
+/* ============================================ */
+/* NEON */
+/* ============================================ */
+.design-neon { background: white; color: #1e293b; }
+.design-neon .neon-header { border: 2px solid #16a34a; padding: 24px 32px; margin: 24px 32px; }
+.design-neon h1 { font-size: 28px; margin: 0 0 4px; color: #1e293b; }
+.design-neon .neon-header p { color: #16a34a; font-size: 13px; margin-bottom: 10px; font-weight: 500; }
+.design-neon .neon-header span { font-size: 11px; color: #64748b; }
+.design-neon section { padding: 0 32px; margin-bottom: 20px; }
+.design-neon h2 { font-size: 13px; color: #16a34a; margin-bottom: 12px; font-weight: 600; }
+.design-neon h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-neon .neon-skills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 32px; margin-top: 14px; }
+.design-neon .neon-skills span { border: 1px solid #16a34a; color: #16a34a; padding: 3px 8px; font-size: 10px; }
+
+/* ============================================ */
+/* MATRIX */
+/* ============================================ */
+.design-matrix { background: white; color: #1e293b; }
+.design-matrix .matrix-header { padding: 28px 32px; border-bottom: 2px solid #16a34a; margin-bottom: 24px; }
+.design-matrix h1 { font-size: 24px; margin: 0 0 4px; color: #1e293b; }
+.design-matrix .matrix-header p { font-size: 12px; color: #16a34a; font-weight: 500; }
+.design-matrix section { padding: 0 32px; margin-bottom: 20px; }
+.design-matrix h2 { font-size: 12px; color: #16a34a; margin-bottom: 12px; font-weight: 600; }
+.design-matrix .matrix-item { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.design-matrix .matrix-item span:first-child { color: #1e293b; font-weight: 500; }
+
+/* ============================================ */
+/* HOLOGRAM */
+/* ============================================ */
+.design-hologram { background: white; }
+.design-hologram .hologram-header { background: #f0f9ff; border-bottom: 3px solid #0891b2; padding: 30px 32px; }
+.design-hologram h1 { font-size: 30px; color: #1e293b; margin: 0 0 4px; }
+.design-hologram .hologram-header p { color: #0891b2; font-size: 14px; font-weight: 500; }
+.design-hologram section { padding: 24px 32px; }
+.design-hologram h2 { font-size: 13px; color: #0891b2; margin-bottom: 12px; font-weight: 600; }
+.design-hologram h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-hologram .hologram-skills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 32px; margin-top: 14px; }
+.design-hologram .hologram-skills span { background: #f0f9ff; color: #0891b2; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #bae6fd; }
+
+/* ============================================ */
+/* TECH */
+/* ============================================ */
+.design-tech { background: white; color: #1e293b; }
+.design-tech .tech-header { background: #f8fafc; border-bottom: 3px solid #3b82f6; padding: 30px; }
+.design-tech h1 { font-size: 26px; margin: 0 0 4px; color: #1e293b; }
+.design-tech .tech-header p { color: #3b82f6; font-size: 14px; margin-bottom: 12px; font-weight: 500; }
+.design-tech .tech-contact { font-size: 11px; color: #64748b; }
+.design-tech .tech-contact span + span::before { content: ' | '; }
+.design-tech section { padding: 24px 30px; }
+.design-tech h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #3b82f6; margin-bottom: 12px; font-weight: 600; }
+.design-tech h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-tech .tech-skills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 30px; margin-top: 14px; }
+.design-tech .tech-skills span { background: #eff6ff; border: 1px solid #bfdbfe; color: #3b82f6; padding: 4px 10px; border-radius: 4px; font-size: 11px; }
+
+/* ============================================ */
+/* DEVELOPER */
+/* ============================================ */
+.design-developer { background: white; color: #1e293b; }
+.design-developer .dev-header { background: #f8fafc; border-bottom: 3px solid #0ea5e9; padding: 28px 30px; }
+.design-developer h1 { font-size: 24px; color: #0ea5e9; margin: 0 0 4px; }
+.design-developer .dev-header p { color: #0ea5e9; font-size: 13px; margin-bottom: 10px; font-weight: 500; }
+.design-developer .dev-header span { color: #64748b; font-size: 11px; }
+.design-developer section { padding: 24px 30px; }
+.design-developer h2 { font-size: 12px; color: #0ea5e9; margin-bottom: 12px; font-weight: 600; }
+.design-developer h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-developer code { background: #f1f5f9; color: #0ea5e9; padding: 2px 6px; font-size: 11px; border-radius: 3px; }
+
+/* ============================================ */
+/* STARTUP */
+/* ============================================ */
+.design-startup { background: white; }
+.design-startup .startup-header { background: #f5f3ff; border-bottom: 3px solid #8b5cf6; padding: 30px 40px; }
+.design-startup h1 { font-size: 28px; color: #1e293b; margin: 0 0 4px; }
+.design-startup .startup-header p { font-size: 14px; color: #8b5cf6; font-weight: 500; }
+.design-startup section { padding: 24px 40px; }
+.design-startup h2 { font-size: 14px; color: #8b5cf6; margin-bottom: 14px; font-weight: 600; }
+.design-startup h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-startup .startup-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0 40px; }
+.design-startup .startup-tags span { background: #f5f3ff; color: #8b5cf6; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #ddd6fe; }
+
+/* ============================================ */
+/* EXECUTIVE */
+/* ============================================ */
+.design-executive { background: white; color: #1e293b; }
+.design-executive .exec-header { background: #fffbeb; border-bottom: 4px solid #d97706; padding: 30px 40px; }
+.design-executive h1 { font-size: 30px; margin: 0 0 4px; font-family: Georgia, serif; color: #1e293b; }
+.design-executive .exec-header p { font-size: 14px; color: #d97706; font-weight: 500; }
+.design-executive .exec-contact { font-size: 11px; margin-top: 12px; color: #64748b; }
+.design-executive .exec-contact span + span::before { content: ' | '; }
+.design-executive section { padding: 24px 40px; }
+.design-executive h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #d97706; margin-bottom: 14px; font-weight: 600; }
+.design-executive h3 { font-size: 14px; color: #1e293b; margin: 0 0 4px; }
+.design-executive p { font-size: 12px; color: #475569; }
+
+/* ============================================ */
+/* ARTISTIC */
+/* ============================================ */
+.design-artistic { background: white; }
+.design-artistic .art-header { background: #fef3c7; border-bottom: 3px solid #f59e0b; padding: 30px 40px; }
+.design-artistic h1 { font-size: 30px; color: #1e293b; margin: 0 0 4px; }
+.design-artistic .art-header p { color: #f59e0b; font-size: 14px; font-weight: 500; }
+.design-artistic section { padding: 24px 40px; }
+.design-artistic h2 { font-size: 14px; color: #f59e0b; margin-bottom: 14px; font-weight: 600; }
+.design-artistic h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-artistic .art-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0 40px; }
+.design-artistic .art-tags span { background: #fef3c7; color: #f59e0b; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #fde68a; }
+
+/* ============================================ */
+/* GEOMETRIC */
+/* ============================================ */
+.design-geometric { background: white; color: #1e293b; }
+.design-geometric .geo-header { position: relative; padding: 30px 40px; border-bottom: 3px solid #14b8a6; }
+.design-geometric h1 { font-size: 28px; margin: 0 0 4px; }
+.design-geometric .geo-header p { color: #14b8a6; font-size: 14px; font-weight: 500; }
+.design-geometric section { padding: 24px 40px; }
+.design-geometric h2 { font-size: 13px; color: #14b8a6; margin-bottom: 14px; font-weight: 600; }
+.design-geometric h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-geometric .geo-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0 40px; }
+.design-geometric .geo-skills span { background: #f0fdfa; color: #14b8a6; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #99f6e4; }
+
+/* ============================================ */
+/* TECH DARK */
+/* ============================================ */
+.design-tech-dark { background: white; color: #1e293b; }
+.design-tech-dark .td-header { background: #f8fafc; border-bottom: 3px solid #6366f1; padding: 30px; }
+.design-tech-dark h1 { font-size: 26px; margin: 0 0 4px; color: #6366f1; }
+.design-tech-dark .td-header p { color: #64748b; font-size: 13px; margin-bottom: 10px; }
+.design-tech-dark .td-header span { color: #059669; font-size: 11px; }
+.design-tech-dark section { padding: 24px 30px; }
+.design-tech-dark h2 { font-size: 12px; color: #6366f1; margin-bottom: 12px; font-weight: 600; }
+.design-tech-dark h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-tech-dark code { background: #f1f5f9; color: #6366f1; padding: 3px 8px; font-size: 11px; border-radius: 4px; }
+
+/* ============================================ */
+/* GLASSMORPHISM */
+/* ============================================ */
+.design-glassmorphism { background: white; padding: 30px; }
+.design-glassmorphism .gm-header { background: #fdf4ff; border: 2px solid #c026d3; border-radius: 8px; padding: 28px; text-align: center; margin-bottom: 24px; }
+.design-glassmorphism h1 { font-size: 28px; color: #1e293b; margin: 0 0 4px; }
+.design-glassmorphism .gm-header p { color: #c026d3; font-size: 14px; font-weight: 500; }
+.design-glassmorphism section { padding: 20px; border-left: 3px solid #c026d3; margin-bottom: 18px; }
+.design-glassmorphism h2 { font-size: 13px; color: #c026d3; margin-bottom: 12px; font-weight: 600; }
+.design-glassmorphism h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-glassmorphism .gm-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+.design-glassmorphism .gm-skills span { background: #fdf4ff; color: #c026d3; padding: 4px 10px; border-radius: 4px; font-size: 11px; border: 1px solid #f0abfc; }
+
+/* ============================================ */
+/* CYBERPUNK */
+/* ============================================ */
+.design-cyberpunk { background: white; color: #1e293b; }
+.design-cyberpunk .cp-header { background: #fdf2f8; border-bottom: 3px solid #db2777; padding: 28px 36px; }
+.design-cyberpunk h1 { font-size: 28px; color: #1e293b; margin: 0 0 4px; }
+.design-cyberpunk .cp-header p { color: #db2777; font-size: 13px; font-weight: 500; }
+.design-cyberpunk section { padding: 24px 36px; }
+.design-cyberpunk h2 { font-size: 13px; color: #db2777; margin-bottom: 12px; font-weight: 600; }
+.design-cyberpunk h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-cyberpunk .cp-skills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 36px; margin-top: 14px; }
+.design-cyberpunk .cp-skills span { border: 1px solid #db2777; color: #db2777; padding: 3px 8px; font-size: 10px; }
+
+/* ============================================ */
+/* FUTURE */
+/* ============================================ */
+.design-future { background: white; }
+.design-future .fut-header { background: #f0fdf4; border-bottom: 3px solid #16a34a; padding: 30px 40px; }
+.design-future h1 { font-size: 30px; color: #1e293b; margin: 0 0 4px; }
+.design-future .fut-header p { color: #16a34a; font-size: 14px; font-weight: 500; }
+.design-future section { padding: 24px 40px; }
+.design-future h2 { font-size: 13px; color: #16a34a; margin-bottom: 12px; font-weight: 600; }
+.design-future h3 { font-size: 13px; color: #1e293b; margin: 0 0 4px; }
+.design-future .fut-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0 40px; }
+.design-future .fut-skills span { background: #f0fdf4; border: 1px solid #86efac; color: #16a34a; padding: 4px 10px; border-radius: 4px; font-size: 11px; }
+
+/* ============================================ */
+/* ELEGANT */
+/* ============================================ */
+.design-elegant { background: white; }
+.design-elegant .eleg-header { background: #fff7ed; border-bottom: 3px solid #ea580c; padding: 30px 40px; }
+.design-elegant h1 { font-size: 28px; margin: 0 0 4px; font-family: Georgia, serif; color: #1e293b; }
+.design-elegant .eleg-header p { color: #ea580c; font-size: 14px; font-weight: 500; }
+.design-elegant .eleg-contact { font-size: 11px; margin-top: 12px; color: #64748b; }
+.design-elegant .eleg-contact span + span::before { content: ' | '; }
+.design-elegant section { padding: 24px 40px; }
+.design-elegant h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #ea580c; border-bottom: 2px solid #ea580c; padding-bottom: 6px; margin-bottom: 16px; }
+.design-elegant h3 { font-size: 14px; color: #1e293b; margin: 0 0 4px; }
+
+/* ============================================ */
+/* CORPORATE */
+/* ============================================ */
+.design-corporate { background: white; }
+.design-corporate .corp-header { background: #eff6ff; border-bottom: 3px solid #2563eb; padding: 30px 40px; }
+.design-corporate h1 { font-size: 28px; margin: 0 0 4px; color: #1e293b; }
+.design-corporate .corp-header p { color: #2563eb; font-size: 14px; font-weight: 500; }
+.design-corporate .corp-contact { font-size: 11px; color: #64748b; }
+.design-corporate .corp-contact span + span::before { content: ' | '; }
+.design-corporate section { padding: 24px 40px; }
+.design-corporate h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #2563eb; margin-bottom: 14px; font-weight: 600; }
+.design-corporate h3 { font-size: 14px; color: #1e293b; margin: 0 0 4px; }
+
+/* ============================================ */
+/* BOLD */
+/* ============================================ */
+.design-bold { background: white; }
+.design-bold .bold-header { background: #fef2f2; border-bottom: 3px solid #dc2626; padding: 30px 40px; }
+.design-bold h1 { font-size: 32px; margin: 0 0 4px; color: #1e293b; }
+.design-bold .bold-header p { color: #dc2626; font-size: 14px; font-weight: 500; }
+.design-bold section { padding: 24px 40px; }
+.design-bold h2 { font-size: 13px; text-transform: uppercase; color: #dc2626; margin-bottom: 14px; font-weight: 600; }
+.design-bold h3 { font-size: 14px; color: #1e293b; margin: 0 0 4px; }
+.design-bold .bold-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding: 0 40px; }
+.design-bold .bold-skills span { background: #fef2f2; color: #1e293b; padding: 4px 10px; font-size: 11px; border: 1px solid #fecaca; }
+
+/* ============================================ */
+/* SMART */
+/* ============================================ */
+.design-smart { background: white; }
+.design-smart .smart-header { background: #ecfdf5; border-bottom: 3px solid #059669; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; }
+.design-smart h1 { font-size: 26px; margin: 0; color: #1e293b; }
+.design-smart .smart-header p { font-size: 13px; color: #059669; font-weight: 500; }
+.design-smart .smart-header span { font-size: 11px; color: #64748b; }
+.design-smart section { padding: 24px 40px; }
+.design-smart h2 { font-size: 12px; text-transform: uppercase; color: #059669; margin-bottom: 14px; font-weight: 600; }
+.design-smart h3 { font-size: 14px; color: #1e293b; margin: 0 0 4px; }
+
+/* ============================================ */
+/* PREMIUM DESIGNS */
+/* ============================================ */
+
+/* PREMIUM ELITE */
+.design-premium-elite { background: white; font-family: 'Georgia', serif; }
+.design-premium-elite .elite-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 36px 40px; display: flex; justify-content: space-between; align-items: flex-start; }
+.design-premium-elite .elite-name-block h1 { font-size: 32px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.5px; }
+.design-premium-elite .elite-title { font-size: 16px; font-weight: 400; opacity: 0.9; margin: 0; }
+.design-premium-elite .elite-contact { text-align: right; }
+.design-premium-elite .elite-contact-item { margin-bottom: 8px; font-size: 12px; }
+.design-premium-elite .elite-contact-item .label { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 2px; }
+.design-premium-elite .elite-contact-item span:last-child { font-weight: 500; }
+.design-premium-elite .elite-section { padding: 24px 40px; border-bottom: 1px solid #e5e7eb; }
+.design-premium-elite .elite-section h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: #0f172a; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #1e3a8a; display: inline-block; }
+.design-premium-elite .elite-summary { font-size: 14px; line-height: 1.8; color: #374151; font-style: italic; }
+.design-premium-elite .elite-experience { margin-bottom: 22px; padding-left: 16px; border-left: 3px solid #1e3a8a; }
+.design-premium-elite .elite-exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.design-premium-elite .elite-exp-header h3 { font-size: 15px; font-weight: 600; color: #1e293b; margin: 0; }
+.design-premium-elite .elite-date { font-size: 12px; color: #6b7280; }
+.design-premium-elite .elite-company { font-size: 13px; font-weight: 500; color: #1e3a8a; margin: 0 0 8px; }
+.design-premium-elite .elite-desc { font-size: 13px; line-height: 1.6; color: #4b5563; margin: 0; }
+.design-premium-elite .elite-edu { margin-bottom: 18px; }
+.design-premium-elite .elite-footer { padding: 24px 40px; display: flex; gap: 40px; background: #f8fafc; }
+.design-premium-elite .elite-skills h3, .design-premium-elite .elite-languages h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #0f172a; margin-bottom: 10px; font-weight: 700; }
+.design-premium-elite .elite-skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.design-premium-elite .elite-skill-list span { background: #0f172a; color: white; padding: 6px 12px; font-size: 11px; }
+.design-premium-elite .elite-languages span { display: block; font-size: 12px; color: #4b5563; margin-bottom: 6px; }
+
+/* PREMIUM LUXURY */
+.design-premium-luxury { display: flex; background: white; font-family: 'Inter', sans-serif; }
+.design-premium-luxury .luxury-sidebar { width: 240px; background: #18181b; color: white; padding: 40px 24px; }
+.design-premium-luxury .luxury-avatar { width: 80px; height: 80px; background: linear-gradient(135deg, #d4af37, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.design-premium-luxury .luxury-avatar span { font-size: 36px; font-weight: 300; color: #18181b; }
+.design-premium-luxury .luxury-sidebar h1 { font-size: 20px; text-align: center; margin: 0 0 4px; font-weight: 600; }
+.design-premium-luxury .luxury-title { font-size: 12px; text-align: center; opacity: 0.7; margin-bottom: 30px; }
+.design-premium-luxury .luxury-contact-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-bottom: 30px; }
+.design-premium-luxury .luxury-contact-item { font-size: 11px; opacity: 0.8; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.design-premium-luxury .luxury-skills-section h3, .design-premium-luxury .luxury-lang-section h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 14px; }
+.design-premium-luxury .luxury-skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.design-premium-luxury .luxury-skills-grid span { background: rgba(212, 175, 55, 0.2); color: #d4af37; padding: 6px 10px; font-size: 10px; border: 1px solid rgba(212, 175, 55, 0.3); }
+.design-premium-luxury .luxury-lang { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 12px; }
+.design-premium-luxury .luxury-lang-level { opacity: 0.6; }
+.design-premium-luxury .luxury-main { flex: 1; padding: 36px 32px; }
+.design-premium-luxury .luxury-about { margin-bottom: 28px; }
+.design-premium-luxury .luxury-about h2, .design-premium-luxury section h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #18181b; font-weight: 700; margin-bottom: 16px; border-bottom: 2px solid #d4af37; padding-bottom: 8px; }
+.design-premium-luxury section { margin-bottom: 28px; }
+.design-premium-luxury .luxury-exp { margin-bottom: 22px; }
+.design-premium-luxury .luxury-exp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.design-premium-luxury .luxury-exp-top h3 { font-size: 15px; font-weight: 600; color: #1f2937; margin: 0; }
+.design-premium-luxury .luxury-exp-top span { font-size: 11px; color: #d4af37; font-weight: 500; }
+.design-premium-luxury .luxury-exp-company { font-size: 13px; color: #6b7280; margin: 0 0 6px; }
+.design-premium-luxury .luxury-exp-desc { font-size: 13px; line-height: 1.6; color: #4b5563; margin: 0; }
+
+/* PREMIUM EXECUTIVE */
+.design-premium-executive { background: white; font-family: 'Inter', sans-serif; }
+.design-premium-executive .exec-top { background: #1c1917; color: white; padding: 40px; display: flex; justify-content: space-between; align-items: center; }
+.design-premium-executive .exec-name h1 { font-size: 34px; font-weight: 700; margin: 0 0 6px; letter-spacing: -1px; }
+.design-premium-executive .exec-name p { font-size: 15px; opacity: 0.8; margin: 0; }
+.design-premium-executive .exec-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; text-align: right; }
+.design-premium-executive .exec-info-item { font-size: 12px; }
+.design-premium-executive .exec-info-item strong { color: #d97706; }
+.design-premium-executive .exec-section { padding: 28px 40px; border-bottom: 1px solid #e5e7eb; }
+.design-premium-executive .exec-section h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #1c1917; font-weight: 700; margin-bottom: 20px; }
+.design-premium-executive .exec-exp { margin-bottom: 24px; }
+.design-premium-executive .exec-exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.design-premium-executive .exec-exp-header h3 { font-size: 16px; font-weight: 600; color: #1f2937; margin: 0 0 4px; }
+.design-premium-executive .exec-company { font-size: 13px; font-weight: 500; color: #92400e; margin: 0; }
+.design-premium-executive .exec-period { font-size: 12px; color: #6b7280; white-space: nowrap; }
+.design-premium-executive .exec-desc { font-size: 13px; line-height: 1.7; color: #4b5563; margin: 8px 0 0; }
+.design-premium-executive .exec-bottom { padding: 24px 40px; background: #fafaf9; display: flex; gap: 48px; }
+.design-premium-executive .exec-skills { flex: 1; }
+.design-premium-executive .exec-skills h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #1c1917; font-weight: 700; margin-bottom: 8px; }
+.design-premium-executive .exec-skills p { font-size: 13px; color: #4b5563; line-height: 1.6; }
